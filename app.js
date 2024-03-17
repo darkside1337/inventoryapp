@@ -10,6 +10,18 @@ const dbConnect = require("./config/dbConnection");
 const errorHandler = require("./middleware/errorHandler");
 const populateDb = require("./populatedb");
 const methodOverride = require("method-override");
+
+// create uploads
+const fs = require("fs");
+const path = require("path");
+
+const uploadsDir = path.join(__dirname, "uploads");
+
+if (!fs.existsSync(uploadsDir)) {
+  fs.mkdirSync(uploadsDir, { recursive: true });
+}
+// end
+
 /* ---------------------------- connect to database ---------------------------- */
 dbConnect();
 /* ------------------------------ static files ------------------------------ */
