@@ -1,0 +1,36 @@
+<div class="container">
+    <div class="product__card text-center flex items-center flex-col gap-16">
+        <h2>
+            <%= data.name %>
+        </h2>
+        <% if (data.img) { %>
+            <div class="max-w-500">
+                <img src="<%= data.img.secure_url %>" alt="product image">
+            </div>
+            <% } %>
+                <h3>
+                    <p>Category:</p>
+                    <a class="underline text-blue-400" href="/categories/category/<%= data.category.id %>">
+                        <%= data.category.name %>
+                    </a>
+                </h3>
+                <div class="product__description">
+                    <h4>Description</h4>
+                    <p>
+                        <%= data.description %>
+                    </p>
+                </div>
+                <div class="flex items-center justify-center gap-16">
+                    <p><span class="bold">Qty</span>: <%= data.numberInStock %>
+                    </p>
+                    <p><span class="bold">Price:</span> $ <%= data.price %>
+                    </p>
+                </div>
+                <p><span class="bold">Last Updated</span>: <%= data.updatedAt.toLocaleString() %>
+                </p>
+                <div class="btnsTd">
+                    <a class="anchorBtn bgBlue" href="<%= data.url %>/update">Edit</a>
+                    <a class="anchorBtn bgRed" href="<%= data.url %>/delete">Delete</a>
+                </div>
+    </div>
+</div>

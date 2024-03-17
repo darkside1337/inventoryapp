@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="table_component" role="region" tabindex="0">
+        <table>
+            <div class="flex text-center flex-col mb-8 gap-16">
+                <h2>
+                    <%= category.name %>
+                </h2>
+                <p class="mb-8">
+                    <%= category.description %>
+                </p>
+                <div>
+                    <a class="anchorBtn bgBlue" href="<%= category.url %>/update">Edit Category</a>
+                    <a class="anchorBtn bgRed" href="<%= category.url %>/delete">Delete Category</a>
+                </div>
+            </div>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                    <th>Last Modified</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% data.forEach(item=> { %>
+                    <tr>
+                        <td>
+                            <%= item.name %>
+                        </td>
+                        <td>
+                            <%= item.description %>
+                        </td>
+                        <td>
+                            <%= item.updatedAt.toLocaleString() %>
+                        </td>
+                        <td class="btnsTd">
+                            <a class="anchorBtn bgYellow" href="/items/item/<%= item._id %>">View</a>
+                            <a class="anchorBtn bgBlue" href="/items/item/<%= item._id %>/update">Edit</a>
+                            <a class="anchorBtn bgRed" href="/items/item/<%= item._id %>/delete">Delete</a>
+                        </td>
+                    </tr>
+                    <% }) %>
+            </tbody>
+        </table>
+    </div>
+
+
+
+
+</div>

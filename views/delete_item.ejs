@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="product__card text-center flex items-center flex-col gap-16">
+        <h2>Are you Sure you want to Delete the following item? :</h2>
+        <h2>
+            <%= data.name %>
+        </h2>
+        <h3>
+            <p>Category:</p>
+            <a class="underline text-blue-400" href="/categories/<%= data.category.id %>">
+                <%= data.category.name %>
+            </a>
+        </h3>
+        <div class="product__description">
+            <h4>Description</h4>
+            <p>
+                <%= data.description %>
+            </p>
+        </div>
+        <p><span class="bold">Last Updated</span>: <%= data.updatedAt.toLocaleString() %>
+        </p>
+        <div class="btnsTd">
+            <form action="<%= data.url %>/delete?_method=DELETE" method="POST">
+                <button type="submit" class="delete-btn">
+                    Delete Item
+                </button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+<div class="container">
+    <section class="add__category">
+        <form action="/categories/new" method="POST" class="form">
+            <div class="form-field">
+                <label for="name">Category Name:</label>
+                <input class="input-primary" type="text" id="name" name="name" required maxlength="30">
+            </div>
+            <div class="form-field">
+                <label for="description">Category Description:</label>
+                <textarea class="textarea" id="description" cols="20" rows="5" name="description" required
+                    maxlength="200"></textarea>
+            </div>
+            <div class="flex gap-16">
+                <button type="reset" class="reset-btn">Reset</button>
+                <button type="submit" class="submit-btn">Add Category</button>
+            </div>
+        </form>
+    </section>
+</div>

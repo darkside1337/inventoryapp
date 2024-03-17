@@ -1,0 +1,49 @@
+<div class="container">
+    <section class="add__item">
+        <form action="/items/new" method="POST" class="form" enctype="multipart/form-data">
+            <div class="form-field">
+                <label for="name">Product Name:</label>
+                <input class="input-primary" type="text" id="name" name="name" minlength="3" required>
+            </div>
+            <div class="form-field">
+                <label for="description">Product Description:</label>
+                <textarea class="textarea" id="description" cols="20" rows="5" name="description" required
+                    maxlength="300" minlength="3"></textarea>
+            </div>
+            <div class="form-field">
+                <label for="category">Product Category:</label>
+                <select name="category" id="category" required>
+                    <% data.forEach((category, i)=> { %>
+                        <option <%=data.length - 1===i ? "selected" : null %> value="<%= category.name %>">
+                                <%= category.name %>
+                        </option>
+                        <% }) %>
+                            <option value="addNewCategory">Add new category</option>
+                </select>
+                <input class="input-primary add-new-category" id="newCategory" type="text"
+                    placeholder="Enter new category" name="newCategory">
+            </div>
+            <div class="form-field">
+                <label for="image">Product Image:</label>
+                <input type="file" name="image" id="imageInput" accept="image/*">
+                <!-- --------------------- conditional check for error --------------------- -->
+                <span class="text-red text-sm">Maximum File size is 5MB!</span>
+            </div>
+            <div class="form-field">
+                <label for="price">Product Price:</label>
+                <input class="input-primary" id="price" type="number" name="price" placeholder="Enter The Price"
+                    required min="0">
+
+            </div>
+            <div class="form-field">
+                <label for="qty">Product Quantity:</label>
+                <input class="input-primary" id="qty" type="number" name="numberInStock"
+                    placeholder="Enter the Quantity" required min="0">
+            </div>
+            <div class="flex gap-16">
+                <button type="reset" class="reset-btn">Reset</button>
+                <button type="submit" class="submit-btn">Add Item</button>
+            </div>
+        </form>
+    </section>
+</div>
